@@ -8,8 +8,9 @@ const ref = process.argv[3];
 if (!ref || !/^[a-f0-9]{40}$/.test(ref)) throw new Error('Usage: node scripts/sync-ui.mjs <application-directory> <40-character-commit-sha>');
 const repository = 'oz-coden/oz-coden.com-ui-web';
 const files = {};
-for (const name of ['ui.css', 'ui.js']) {
-    const response = await fetch(`https://raw.githubusercontent.com/${repository}/${ref}/assets/${name}`);
+for (const name of ['ui.css', 'ui.js', 'LICENSE']) {
+    const path = name === 'LICENSE' ? name : `assets/${name}`;
+    const response = await fetch(`https://raw.githubusercontent.com/${repository}/${ref}/${path}`);
     if (!response.ok) throw new Error(`${name}: HTTP ${response.status}`);
     files[name] = await response.text();
 }

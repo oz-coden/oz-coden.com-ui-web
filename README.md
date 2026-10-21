@@ -4,7 +4,7 @@
 
 ## 導入
 
-`assets/ui.css` と `assets/ui.js` を利用先の `vendor/ui/` にコピーします。利用するコミットとファイルのSHA-256は、利用先の `shared-ui.json` に記録します。コピー済みファイルを同梱するため、サイトの動作時にこのリポジトリへの通信やビルドは発生しません。
+`assets/ui.css`・`assets/ui.js`・ルートの`LICENSE`を利用先の`vendor/ui/`にコピーします。利用するコミットとファイルのSHA-256は、利用先の `shared-ui.json` に記録します。コピー済みファイルを同梱するため、サイトの動作時にこのリポジトリへの通信やビルドは発生しません。
 
 ```html
 <script src="vendor/ui/ui.js"></script>
@@ -28,7 +28,7 @@
 
 ## 更新
 
-Node.js 22以降で、このリポジトリのチェックアウトから次を実行します。第2引数は利用先のディレクトリ、第3引数は取り込む40桁のコミットSHAです。
+Node.js 22以降で、このリポジトリのチェックアウトから次を実行します。第2引数は利用先のディレクトリ、第3引数は取り込む40桁のコミットSHAです。CSS・JavaScriptとともにMITのLICENSEも取り込みます。
 
 ```sh
 node scripts/sync-ui.mjs ../example-tool-web COMMIT_SHA
@@ -46,3 +46,7 @@ node scripts/sync-ui.mjs ../example-tool-web COMMIT_SHA
 - `themeChanged`: `detail` に `light` または `dark` を持つイベント
 
 テーマ設定は同一オリジンの `localStorage` に保存します。保存領域が利用できない場合もテーマ切替は動作します。別タブでのテーマ変更も反映します。
+
+## LICENSE
+
+This project is released under the [MIT License](LICENSE).
